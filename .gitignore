@@ -2,4 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/EntertainmentApp/.vs/EntertainmentApp
+/EntertainmentApp/.vs/
+EntertainmentApp/bin/
+EntertainmentApp/obj/Debug/
