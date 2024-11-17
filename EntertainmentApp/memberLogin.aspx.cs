@@ -49,7 +49,6 @@ namespace EntertainmentApp
                     CaptchaControl.DisplayCaptcha();
                 }
             }
-          
 
         }
 
@@ -63,10 +62,7 @@ namespace EntertainmentApp
             {
                 // Create a new cookie
                 HttpCookie userSessionCookie = new HttpCookie("UserSession");
-                userSessionCookie["UserName"] = responseObj.CurrentSession.UserName;
-                userSessionCookie["SessionId"] = responseObj.CurrentSession.SessionId;
-                userSessionCookie["UserType"] = responseObj.CurrentSession.UserType;
-
+                userSessionCookie.Value = JsonConvert.SerializeObject(responseObj.CurrentSession);
                 // Set the expiration date for the cookie
                 userSessionCookie.Expires = DateTime.Now.AddHours(48);
 

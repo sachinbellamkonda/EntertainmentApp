@@ -143,6 +143,7 @@
     <Content Include="Default.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
     <Content Include="memberLogin.aspx" />
     <Content Include="memberLogin.css" />
     <Content Include="memberSignup.aspx" />

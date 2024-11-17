@@ -23,10 +23,10 @@
                 <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbarDropdown">
                     <div class="navbar-nav text-end ms-auto">
-                        <a href="Default.aspx" class="nav-link"> Login/Signup </a>
-                        <a href="Member.aspx" class="nav-link"> Member </a>
-                        <a href="StaffPage.aspx" class="nav-link"> Staff </a>
-                        <a href="contact.html" class="nav-link"> Contact </a>
+                        <a href="memberLogin.aspx" class="nav-link"> Login/Signup </a>
+                        <a href="SearchMovies.aspx" class="nav-link"> Member </a>
+                        <a href="StaffLogin.aspx" class="nav-link"> Staff </a>
+                        <a href="index.html" class="nav-link"> About </a>
                     </div>
                 </div>
                 <!-- Navbar Links Ends -->
