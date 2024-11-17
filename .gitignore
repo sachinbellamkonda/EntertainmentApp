@@ -67,3 +67,6 @@ EntertainmentApp/bin/roslyn/vbc.exe.config
 EntertainmentApp/bin/roslyn/vbc.rsp
 EntertainmentApp/bin/roslyn/VBCSCompiler.exe
 EntertainmentApp/bin/roslyn/VBCSCompiler.exe.config
+EntertainmentApp/obj/Debug/build.force
+EntertainmentApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+EntertainmentApp/obj/Debug/EntertainmentApp.csproj.AssemblyReference.cache

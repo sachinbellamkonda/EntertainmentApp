@@ -143,6 +143,7 @@
     <Content Include="Default.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="index.html" />
     <Content Include="memberLogin.aspx" />
     <Content Include="memberLogin.css" />
     <Content Include="memberSignup.aspx" />
@@ -205,6 +206,10 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="SearchMovies.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="Staff.aspx" />
+    <Content Include="Staff.css" />
+    <Content Include="StaffLogin.aspx" />
+    <Content Include="StaffLogin.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -277,6 +282,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.aspx.cs">
+      <DependentUpon>Staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Staff.aspx.designer.cs">
+      <DependentUpon>Staff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StaffLogin.aspx.cs">
+      <DependentUpon>StaffLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffLogin.aspx.designer.cs">
+      <DependentUpon>StaffLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
