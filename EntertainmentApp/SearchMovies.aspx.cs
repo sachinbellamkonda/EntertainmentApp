@@ -271,7 +271,7 @@ namespace EntertainmentApp
                     return "https://upload.wikimedia.org/wikipedia/commons/1/1e/Disney%2B_Hotstar_logo.svg";
                 case "paramount+":
                     return "https://en.wikipedia.org/wiki/File:Paramount%2B_logo.png";
-                case "plutotv":
+                case "pluto tv":
                     return "https://upload.wikimedia.org/wikipedia/commons/c/c3/Pluto_TV_logo_2024.svg";
                 case "hotstar":
                     return "https://upload.wikimedia.org/wikipedia/en/0/0e/Hotstar_New_Logo.jpeg";

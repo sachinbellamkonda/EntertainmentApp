@@ -44,7 +44,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CseLibrary">
+      <HintPath>..\..\CseLibrary\CseLibrary\bin\Debug\CseLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MyLibrary">
+      <HintPath>..\..\MyLibrary\MyLibrary\bin\Debug\net8.0\MyLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
