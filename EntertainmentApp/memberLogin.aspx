@@ -1,0 +1,63 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="memberLogin.aspx.cs" Inherits="EntertainmentApp.memberLogin" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Everything Entertainment - Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" type="text/css" href="memberLogin.css" />
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Main Section -->
+        <section id="main-section">
+            <div class="container text-center">
+                <!-- App Name -->
+                <h1 class="app-title">Everything Entertainment</h1>
+
+                <!-- Login Box -->
+                <div class="login-box">
+                    <h2 class="login-heading">Sign In</h2>
+
+                    <!-- Login Form -->
+                    <div class="form-group">
+                        <label for="txtUsername">
+                            <i class="bi bi-person-fill"></i> Your Username
+                        </label>
+                        <asp:TextBox ID="txtUsername" runat="server" placeholder="Enter your username" CssClass="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtPassword">
+                            <i class="bi bi-lock-fill"></i> Your Password
+                        </label>
+                        <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter your password" TextMode="Password" CssClass="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="txtCaptchaInput">
+                            <i class="bi bi-shield-lock-fill"></i> CAPTCHA
+                        </label>
+                        <asp:Image ID="imgCaptcha" runat="server" CssClass="captcha-image" />
+                        <asp:TextBox ID="txtCaptchaInput" runat="server" placeholder="Enter CAPTCHA" CssClass="form-input" />
+                    </div>
+                    <asp:Button ID="btnLogin" runat="server" Text="Sign In" OnClick="btnLogin_Click" CssClass="btn-submit" />
+                    <br />
+                    <asp:Label ID="lblValidationStatus" runat="server" Text="" CssClass="error"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblResult" runat="server" Text="" CssClass="success"></asp:Label>
+
+                </div>
+            </div>
+        </section>
+    </form>
+
+    <!-- Scripts -->
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>

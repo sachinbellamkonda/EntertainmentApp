@@ -1,0 +1,114 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #f4f4f9);
+    color: #333;
+}
+
+/* Main Section */
+#main-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* App Title */
+.app-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2575fc;
+}
+
+/* Login Box */
+.login-box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+}
+
+/* Login Heading */
+.login-heading {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #666;
+    }
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .form-input:focus {
+        border-color: #2575fc;
+        box-shadow: 0 0 5px rgba(37, 117, 252, 0.3);
+    }
+
+/* CAPTCHA Image */
+.captcha-image {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+
+/* Button */
+.btn-submit {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-submit:hover {
+        background-color: #218838;
+    }
+
+/* Validation and Success Messages */
+.error {
+    color: #e63946;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.success {
+    color: #28a745;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 15px;
+}
