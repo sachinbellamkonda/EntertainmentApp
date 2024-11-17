@@ -1,11 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="memberLogin.aspx.cs" Inherits="EntertainmentApp.memberLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="memberSignup.aspx.cs" Inherits="EntertainmentApp.memberSignup" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Everything Entertainment - Login</title>
+    <title>Everything Entertainment - Sign Up</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" type="text/css" href="memberLogin.css" />
+    <link rel="stylesheet" type="text/css" href="memberSignup.css" />
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -20,11 +21,11 @@
                 <!-- App Name -->
                 <h1 class="app-title">Everything Entertainment</h1>
 
-                <!-- Login Box -->
+                <!-- Signup Box -->
                 <div class="login-box">
-                    <h2 class="login-heading">Sign In</h2>
+                    <h2 class="login-heading">Sign Up</h2>
 
-                    <!-- Login Form -->
+                    <!-- Signup Form -->
                     <div class="form-group">
                         <label for="txtUsername">
                             <i class="bi bi-person-fill"></i> Your Username
@@ -38,15 +39,21 @@
                         <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter your password" TextMode="Password" CssClass="form-input" />
                     </div>
                     <div class="form-group">
+                        <label for="txtConfirmPassword">
+                            <i class="bi bi-lock-fill"></i> Confirm Password
+                        </label>
+                        <asp:TextBox ID="txtConfirmPassword" runat="server" placeholder="Confirm your password" TextMode="Password" CssClass="form-input" />
+                    </div>
+                    <div class="form-group">
                         <label for="txtCaptchaInput">
                             <i class="bi bi-shield-lock-fill"></i> CAPTCHA
                         </label>
                         <asp:Image ID="imgCaptcha" runat="server" CssClass="captcha-image" />
                         <asp:TextBox ID="txtCaptchaInput" runat="server" placeholder="Enter CAPTCHA" CssClass="form-input" />
                     </div>
-                    <asp:Button ID="btnLogin" runat="server" Text="Sign In" OnClick="btnLogin_Click" CssClass="btn-submit" />
+                    <asp:Button ID="btnSignup" runat="server" Text="Sign Up" OnClick="btnSignup_Click" CssClass="btn-submit" />
                     <br />
-                    <asp:Button ID="btnSignup" runat="server" Text="Sign Up" PostBackUrl="~/memberSignup.aspx" CssClass="btn-signup" />
+                    <asp:Button ID="btnLogin" runat="server" Text="Sign In" PostBackUrl="~/memberLogin.aspx" CssClass="btn-signin" />
                     <br />
                     <asp:Label ID="lblResult" runat="server" Text="" CssClass="success"></asp:Label>
                 </div>

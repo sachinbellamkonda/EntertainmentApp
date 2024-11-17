@@ -179,8 +179,8 @@ namespace EntertainmentApp
             }
             else
             {
-                lblValidationStatus.Text = "Invalid CAPTCHA. Please try again.";
-                lblValidationStatus.CssClass = "error";
+                lblResult.Text = "Invalid CAPTCHA. Please try again.";
+                lblResult.CssClass = "error";
             }
 
             // Refresh the CAPTCHA regardless of success or failure
