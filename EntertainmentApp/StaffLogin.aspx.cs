@@ -14,9 +14,9 @@ using EntertainmentApp.Models;
 
 namespace EntertainmentApp
 {
-    public partial class memberLogin : System.Web.UI.Page
+    public partial class StaffLogin : System.Web.UI.Page
     {
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace EntertainmentApp
                         if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId))
                         {
                             // Session exists, redirect to SearchMovies page
-                            Response.Redirect("searchmovies.aspx");
+                            Response.Redirect("staff.aspx");
                         }
                     }
                     catch (Exception ex)
@@ -49,7 +49,7 @@ namespace EntertainmentApp
                     DisplayCaptcha();
                 }
             }
-          
+
 
         }
 
@@ -74,7 +74,7 @@ namespace EntertainmentApp
             {
                 captchaText[i] = chars[random.Next(chars.Length)];
             }
-            
+
             return new string(captchaText);
         }
 
@@ -155,7 +155,7 @@ namespace EntertainmentApp
         private Response AuthenticateUser(string username, string password)
         {
             var client = new Service1Client();
-            string response = client.Login(username, password, "Member");
+            string response = client.Login(username, password, "Staff");
             var responseObj = JsonConvert.DeserializeObject<Response>(response);
             if (responseObj != null && responseObj.Status)
             {
@@ -177,7 +177,7 @@ namespace EntertainmentApp
                 // Pass the session data to the next page using QueryString or Session
                 Session["currentSession"] = responseObj.CurrentSession;
             }
-            return responseObj; 
+            return responseObj;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -193,7 +193,7 @@ namespace EntertainmentApp
                 {
                     lblResult.Text = "Login successful! Welcome " + username;
                     lblResult.CssClass = "loggedIn";
-                    Response.Redirect("searchmovies.aspx");
+                    Response.Redirect("staff.aspx");
                 }
                 else
                 {
