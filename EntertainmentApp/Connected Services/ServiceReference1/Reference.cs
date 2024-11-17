@@ -76,6 +76,83 @@ namespace EntertainmentApp.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Session", Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+    [System.SerializableAttribute()]
+    public partial class Session : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SessionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserTypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SessionId {
+            get {
+                return this.SessionIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SessionIdField, value) != true)) {
+                    this.SessionIdField = value;
+                    this.RaisePropertyChanged("SessionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserType {
+            get {
+                return this.UserTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserTypeField, value) != true)) {
+                    this.UserTypeField = value;
+                    this.RaisePropertyChanged("UserType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Movie", Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
     [System.SerializableAttribute()]
     public partial class Movie : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -177,7 +254,19 @@ namespace EntertainmentApp.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HomePageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string QualityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ThemeColorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UrlField;
@@ -189,6 +278,19 @@ namespace EntertainmentApp.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HomePage {
+            get {
+                return this.HomePageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HomePageField, value) != true)) {
+                    this.HomePageField = value;
+                    this.RaisePropertyChanged("HomePage");
+                }
             }
         }
         
@@ -206,6 +308,45 @@ namespace EntertainmentApp.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Quality {
+            get {
+                return this.QualityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QualityField, value) != true)) {
+                    this.QualityField = value;
+                    this.RaisePropertyChanged("Quality");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ThemeColor {
+            get {
+                return this.ThemeColorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ThemeColorField, value) != true)) {
+                    this.ThemeColorField = value;
+                    this.RaisePropertyChanged("ThemeColor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Url {
             get {
                 return this.UrlField;
@@ -214,6 +355,179 @@ namespace EntertainmentApp.ServiceReference1 {
                 if ((object.ReferenceEquals(this.UrlField, value) != true)) {
                     this.UrlField = value;
                     this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetailedMovie", Namespace="http://schemas.datacontract.org/2004/07/WcfService1")]
+    [System.SerializableAttribute()]
+    public partial class DetailedMovie : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CastField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirectorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GenreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IMDbRatingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PlotField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PosterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReleaseYearField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RuntimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cast {
+            get {
+                return this.CastField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CastField, value) != true)) {
+                    this.CastField = value;
+                    this.RaisePropertyChanged("Cast");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Director {
+            get {
+                return this.DirectorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirectorField, value) != true)) {
+                    this.DirectorField = value;
+                    this.RaisePropertyChanged("Director");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Genre {
+            get {
+                return this.GenreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GenreField, value) != true)) {
+                    this.GenreField = value;
+                    this.RaisePropertyChanged("Genre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IMDbRating {
+            get {
+                return this.IMDbRatingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IMDbRatingField, value) != true)) {
+                    this.IMDbRatingField = value;
+                    this.RaisePropertyChanged("IMDbRating");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Plot {
+            get {
+                return this.PlotField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlotField, value) != true)) {
+                    this.PlotField = value;
+                    this.RaisePropertyChanged("Plot");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Poster {
+            get {
+                return this.PosterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PosterField, value) != true)) {
+                    this.PosterField = value;
+                    this.RaisePropertyChanged("Poster");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ReleaseYear {
+            get {
+                return this.ReleaseYearField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReleaseYearField, value) != true)) {
+                    this.ReleaseYearField = value;
+                    this.RaisePropertyChanged("ReleaseYear");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Runtime {
+            get {
+                return this.RuntimeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RuntimeField, value) != true)) {
+                    this.RuntimeField = value;
+                    this.RaisePropertyChanged("Runtime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
                 }
             }
         }
@@ -244,6 +558,30 @@ namespace EntertainmentApp.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<EntertainmentApp.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(EntertainmentApp.ServiceReference1.CompositeType composite);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
+        string Login(string userName, string password, string userType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
+        System.Threading.Tasks.Task<string> LoginAsync(string userName, string password, string userType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SignUp", ReplyAction="http://tempuri.org/IService1/SignUpResponse")]
+        string SignUp(string userName, string password, string userType, EntertainmentApp.ServiceReference1.Session currentSession);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SignUp", ReplyAction="http://tempuri.org/IService1/SignUpResponse")]
+        System.Threading.Tasks.Task<string> SignUpAsync(string userName, string password, string userType, EntertainmentApp.ServiceReference1.Session currentSession);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUser", ReplyAction="http://tempuri.org/IService1/DeleteUserResponse")]
+        string DeleteUser(string userName, string userType, EntertainmentApp.ServiceReference1.Session currentSession);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteUser", ReplyAction="http://tempuri.org/IService1/DeleteUserResponse")]
+        System.Threading.Tasks.Task<string> DeleteUserAsync(string userName, string userType, EntertainmentApp.ServiceReference1.Session currentSession);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListUsers", ReplyAction="http://tempuri.org/IService1/ListUsersResponse")]
+        string ListUsers(string userType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListUsers", ReplyAction="http://tempuri.org/IService1/ListUsersResponse")]
+        System.Threading.Tasks.Task<string> ListUsersAsync(string userType);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SearchMovies", ReplyAction="http://tempuri.org/IService1/SearchMoviesResponse")]
         EntertainmentApp.ServiceReference1.Movie[] SearchMovies(string keyword);
         
@@ -267,6 +605,12 @@ namespace EntertainmentApp.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetNearbyEvents", ReplyAction="http://tempuri.org/IService1/GetNearbyEventsResponse")]
         System.Threading.Tasks.Task<string> GetNearbyEventsAsync(string location, string keyword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMovieDetails", ReplyAction="http://tempuri.org/IService1/GetMovieDetailsResponse")]
+        EntertainmentApp.ServiceReference1.DetailedMovie GetMovieDetails(string imdbId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMovieDetails", ReplyAction="http://tempuri.org/IService1/GetMovieDetailsResponse")]
+        System.Threading.Tasks.Task<EntertainmentApp.ServiceReference1.DetailedMovie> GetMovieDetailsAsync(string imdbId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -312,6 +656,38 @@ namespace EntertainmentApp.ServiceReference1 {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
+        public string Login(string userName, string password, string userType) {
+            return base.Channel.Login(userName, password, userType);
+        }
+        
+        public System.Threading.Tasks.Task<string> LoginAsync(string userName, string password, string userType) {
+            return base.Channel.LoginAsync(userName, password, userType);
+        }
+        
+        public string SignUp(string userName, string password, string userType, EntertainmentApp.ServiceReference1.Session currentSession) {
+            return base.Channel.SignUp(userName, password, userType, currentSession);
+        }
+        
+        public System.Threading.Tasks.Task<string> SignUpAsync(string userName, string password, string userType, EntertainmentApp.ServiceReference1.Session currentSession) {
+            return base.Channel.SignUpAsync(userName, password, userType, currentSession);
+        }
+        
+        public string DeleteUser(string userName, string userType, EntertainmentApp.ServiceReference1.Session currentSession) {
+            return base.Channel.DeleteUser(userName, userType, currentSession);
+        }
+        
+        public System.Threading.Tasks.Task<string> DeleteUserAsync(string userName, string userType, EntertainmentApp.ServiceReference1.Session currentSession) {
+            return base.Channel.DeleteUserAsync(userName, userType, currentSession);
+        }
+        
+        public string ListUsers(string userType) {
+            return base.Channel.ListUsers(userType);
+        }
+        
+        public System.Threading.Tasks.Task<string> ListUsersAsync(string userType) {
+            return base.Channel.ListUsersAsync(userType);
+        }
+        
         public EntertainmentApp.ServiceReference1.Movie[] SearchMovies(string keyword) {
             return base.Channel.SearchMovies(keyword);
         }
@@ -342,6 +718,14 @@ namespace EntertainmentApp.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> GetNearbyEventsAsync(string location, string keyword) {
             return base.Channel.GetNearbyEventsAsync(location, keyword);
+        }
+        
+        public EntertainmentApp.ServiceReference1.DetailedMovie GetMovieDetails(string imdbId) {
+            return base.Channel.GetMovieDetails(imdbId);
+        }
+        
+        public System.Threading.Tasks.Task<EntertainmentApp.ServiceReference1.DetailedMovie> GetMovieDetailsAsync(string imdbId) {
+            return base.Channel.GetMovieDetailsAsync(imdbId);
         }
     }
 }
