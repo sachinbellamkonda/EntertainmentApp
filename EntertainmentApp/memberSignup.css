@@ -24,7 +24,7 @@ body {
     color: #2575fc;
 }
 
-/* Login Box */
+/* Login Box (Reused for Signup Box) */
 .login-box {
     background: #fff;
     border-radius: 12px;
@@ -35,7 +35,7 @@ body {
     text-align: left;
 }
 
-/* Login Heading */
+/* Login Heading (Reused for Signup Heading) */
 .login-heading {
     font-size: 1.8rem;
     margin-bottom: 20px;
@@ -48,13 +48,13 @@ body {
     margin-bottom: 20px;
 }
 
-    .form-group label {
-        display: block;
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 8px;
-        color: #666;
-    }
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #666;
+}
 
 .form-input {
     width: 100%;
@@ -65,10 +65,10 @@ body {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-    .form-input:focus {
-        border-color: #2575fc;
-        box-shadow: 0 0 5px rgba(37, 117, 252, 0.3);
-    }
+.form-input:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 5px rgba(37, 117, 252, 0.3);
+}
 
 /* CAPTCHA Image */
 .captcha-image {
@@ -79,7 +79,7 @@ body {
     border-radius: 8px;
 }
 
-/* Button */
+/* Buttons */
 .btn-submit {
     background-color: #28a745;
     color: white;
@@ -94,9 +94,46 @@ body {
     transition: background-color 0.3s ease;
 }
 
-    .btn-submit:hover {
-        background-color: #218838;
-    }
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+.btn-signin {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-signin:hover {
+    background-color: #0056b3;
+}
+
+.btn-refresh {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-refresh:hover {
+    background-color: #5a6268;
+}
 
 /* Validation and Success Messages */
 .error {
@@ -112,21 +149,3 @@ body {
     text-align: center;
     margin-top: 15px;
 }
-
-.btn-signup {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 12px 20px;
-    border-radius: 8px;
-    width: 100%;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-    .btn-signup:hover {
-        background-color: #0056b3;
-    }
