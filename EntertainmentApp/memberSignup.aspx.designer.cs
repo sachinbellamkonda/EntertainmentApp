@@ -51,22 +51,13 @@ namespace EntertainmentApp
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
 
         /// <summary>
-        /// imgCaptcha control.
+        /// CaptchaControl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgCaptcha;
-
-        /// <summary>
-        /// txtCaptchaInput control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCaptchaInput;
+        protected global::EntertainmentApp.WebUserControl1 CaptchaControl;
 
         /// <summary>
         /// btnSignup control.

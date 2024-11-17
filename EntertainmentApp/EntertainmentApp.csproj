@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="CaptchaControl.ascx" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
     <Content Include="Connected Services\ServiceReference1\EntertainmentApp.ServiceReference1.CompositeType.datasource">
@@ -301,6 +302,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CaptchaControl.ascx.cs">
+      <DependentUpon>CaptchaControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CaptchaControl.ascx.designer.cs">
+      <DependentUpon>CaptchaControl.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
