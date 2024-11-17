@@ -2,7 +2,15 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/EntertainmentApp/.vs/EntertainmentApp
+/EntertainmentApp/.vs/
+EntertainmentApp/bin/
+EntertainmentApp/obj/Debug/
+EntertainmentApp/obj/Debug/build.force
+EntertainmentApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+EntertainmentApp/obj/Debug/EntertainmentApp.csproj.AssemblyReference.cache
+*.cache
+EntertainmentApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+EntertainmentApp/obj/Debug/EntertainmentApp.csproj.AssemblyReference.cache
 EntertainmentApp/bin/Antlr3.Runtime.pdb
 EntertainmentApp/bin/EntertainmentApp.dll
 EntertainmentApp/bin/EntertainmentApp.dll.config
