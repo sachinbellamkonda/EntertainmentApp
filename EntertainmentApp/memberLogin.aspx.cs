@@ -152,10 +152,32 @@ namespace EntertainmentApp
         }
 
 
-        private bool AuthenticateUser(string username, string password)
+        private Response AuthenticateUser(string username, string password)
         {
-            
-            return username == "admin" && password == "password"; 
+            var client = new Service1Client();
+            string response = client.Login(username, password, "Member");
+            var responseObj = JsonConvert.DeserializeObject<Response>(response);
+            if (responseObj != null && responseObj.Status)
+            {
+                // Create a new cookie
+                HttpCookie userSessionCookie = new HttpCookie("UserSession");
+                userSessionCookie["UserName"] = responseObj.CurrentSession.UserName;
+                userSessionCookie["SessionId"] = responseObj.CurrentSession.SessionId;
+                userSessionCookie["UserType"] = responseObj.CurrentSession.UserType;
+
+                // Set the expiration date for the cookie
+                userSessionCookie.Expires = DateTime.Now.AddHours(48);
+
+                // Add the cookie to the response
+                HttpContext.Current.Response.Cookies.Add(userSessionCookie);
+                ViewState["UserName"] = responseObj.CurrentSession.UserName;
+                ViewState["SessionId"] = responseObj.CurrentSession.SessionId;
+                ViewState["UserType"] = responseObj.CurrentSession.UserType;
+
+                // Pass the session data to the next page using QueryString or Session
+                Session["currentSession"] = responseObj.CurrentSession;
+            }
+            return responseObj; 
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -166,21 +188,26 @@ namespace EntertainmentApp
 
             if (ValidateCaptchaInput(userCaptchaInput))
             {
-                if (AuthenticateUser(username, password))
+                Response response = AuthenticateUser(username, password);
+                if (response != null && response.Status)
                 {
                     lblResult.Text = "Login successful! Welcome " + username;
                     lblResult.CssClass = "loggedIn";
                 }
                 else
                 {
-                    lblResult.Text = "Login failed. Please check your username and password.";
+                    lblResult.Text = response.Message;
+                    if (lblResult.Text == "No User Found")
+                    {
+                        lblResult.Text = "User not found, Consider signing up for free.";
+                    }
                     lblResult.CssClass = "error";
                 }
             }
             else
             {
-                lblValidationStatus.Text = "Invalid CAPTCHA. Please try again.";
-                lblValidationStatus.CssClass = "error";
+                lblResult.Text = "Invalid CAPTCHA. Please try again.";
+                lblResult.CssClass = "error";
             }
 
             // Refresh the CAPTCHA regardless of success or failure
