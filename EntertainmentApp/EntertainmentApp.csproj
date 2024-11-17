@@ -144,6 +144,8 @@
     <Content Include="Global.asax" />
     <Content Include="memberLogin.aspx" />
     <Content Include="memberLogin.css" />
+    <Content Include="memberSignup.aspx" />
+    <Content Include="memberSignup.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -245,6 +247,13 @@
     </Compile>
     <Compile Include="memberLogin.aspx.designer.cs">
       <DependentUpon>memberLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="memberSignup.aspx.cs">
+      <DependentUpon>memberSignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="memberSignup.aspx.designer.cs">
+      <DependentUpon>memberSignup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\UserSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

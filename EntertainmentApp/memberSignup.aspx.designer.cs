@@ -11,7 +11,7 @@ namespace EntertainmentApp
 {
 
 
-    public partial class memberLogin
+    public partial class memberSignup
     {
 
         /// <summary>
@@ -42,6 +42,15 @@ namespace EntertainmentApp
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
+        /// txtConfirmPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
+
+        /// <summary>
         /// imgCaptcha control.
         /// </summary>
         /// <remarks>
@@ -60,15 +69,6 @@ namespace EntertainmentApp
         protected global::System.Web.UI.WebControls.TextBox txtCaptchaInput;
 
         /// <summary>
-        /// btnLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
-
-        /// <summary>
         /// btnSignup control.
         /// </summary>
         /// <remarks>
@@ -76,6 +76,15 @@ namespace EntertainmentApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSignup;
+
+        /// <summary>
+        /// btnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogin;
 
         /// <summary>
         /// lblResult control.
