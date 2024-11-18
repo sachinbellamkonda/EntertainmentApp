@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EntertainmentApp.Models;
+using CseLibrary;
 
 namespace EntertainmentApp
 {
@@ -82,6 +83,7 @@ namespace EntertainmentApp
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
+            string encryptedPassword = PasswordEncryptor.EncryptPassword(password);
             string userCaptchaInput = CaptchaControl.UserInput; // Accessing the UserInput property
 
             // Validate CAPTCHA
@@ -89,7 +91,7 @@ namespace EntertainmentApp
 
             if (isCaptchaValid)
             {
-                Response response = AuthenticateUser(username, password);
+                Response response = AuthenticateUser(username, encryptedPassword);
                 if (response != null && response.Status)
                 {
                     lblResult.Text = "Login successful! Welcome " + username;
