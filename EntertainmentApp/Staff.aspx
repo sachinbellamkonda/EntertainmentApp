@@ -26,6 +26,7 @@
     <form id="form1" runat="server">
         <div>
             <h1>Staff Portal</h1>
+            <p>Total Application Visits: <asp:Label ID="lblVisitCounter" runat="server" /></p>
             <!-- Buttons -->
             <asp:Button ID="btnListMembers" runat="server" Text="List Member Users" OnClick="btnListMembers_Click" />
             <asp:Button ID="btnListStaff" runat="server" Text="List Staff Users" OnClick="btnListStaff_Click" />
@@ -45,6 +46,23 @@
                     </thead>
                     <tbody id="userTableBody" runat="server"></tbody>
                 </table>
+            </asp:Panel>
+
+            <asp:Panel ID="panelAddStaff" runat="server" Visible="false">
+              <h2>Add Staff User</h2>
+              <asp:Label ID="lblAddStaffError" runat="server" ForeColor="Red" Visible="false"></asp:Label>
+              <asp:Label ID="lblAddStaffSuccess" runat="server" ForeColor="Green" Visible="false"></asp:Label>
+             <div>
+                <label for="txtUsername">Username:</label>
+                <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+             </div>
+             <div>
+                <label for="txtPassword">Password:</label>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+             </div>
+             <div>
+                <asp:Button ID="btnSubmitStaff" runat="server" Text="Add Staff" OnClick="btnSubmitStaff_Click" />
+             </div>
             </asp:Panel>
         </div>
     </form>

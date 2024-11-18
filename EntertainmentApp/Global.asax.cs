@@ -20,6 +20,8 @@ namespace EntertainmentApp
         protected void Application_Start(object sender, EventArgs e)
         {
             // Initialize the visit counter
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
             Application["VisitCounter"] = 0;
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

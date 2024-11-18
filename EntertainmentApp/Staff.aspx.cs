@@ -1,4 +1,5 @@
-﻿using EntertainmentApp.Models;
+﻿using CseLibrary;
+using EntertainmentApp.Models;
 using EntertainmentApp.ServiceReference1;
 using Newtonsoft.Json;
 using System;
@@ -22,6 +23,8 @@ namespace EntertainmentApp
                     LoadUsers(ViewState["UserType"].ToString());
                 }
             }
+            else
+            { lblVisitCounter.Text = Application["VisitCounter"]?.ToString() ?? "0"; }
         }
 
         protected void btnListMembers_Click(object sender, EventArgs e)
@@ -35,6 +38,7 @@ namespace EntertainmentApp
         }
         protected void btnAddStaff_Click(object sender, EventArgs e)
         {
+            panelAddStaff.Visible = true;
             // Add staff functionality to be implemented later
         }
 
@@ -144,6 +148,59 @@ namespace EntertainmentApp
             catch (Exception ex)
             {
                 // Log or display exception details
+            }
+        }
+
+        protected void btnSubmitStaff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string username = txtUsername.Text.Trim();
+                string password = txtPassword.Text.Trim();
+                string encryptedPassword = PasswordEncryptor.EncryptPassword(password);
+
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+                {
+                    lblAddStaffError.Text = "Username and password cannot be empty.";
+                    lblAddStaffError.Visible = true;
+                    return;
+                }
+
+                HttpCookie userCookie = Request.Cookies["UserSession"];
+                var sessionData = JsonConvert.DeserializeObject<UserSession>(userCookie.Value);
+                var serviceSession = new ServiceReference1.Session
+                {
+                    UserName = sessionData.UserName,
+                    SessionId = sessionData.SessionId,
+                    UserType = sessionData.UserType
+                };
+
+                // Call the SignUp service
+                var client = new Service1Client();
+                string responseJson = client.SignUp(username, encryptedPassword, "Staff", serviceSession);
+                var responseData = JsonConvert.DeserializeObject<dynamic>(responseJson);
+
+                if (responseData.status == true)
+                {
+                    lblAddStaffSuccess.Text = "Staff user added successfully!";
+                    lblAddStaffSuccess.Visible = true;
+
+                    // Reload staff users
+                    LoadUsers("Staff");
+
+                    // Hide the form
+                    panelAddStaff.Visible = false;
+                }
+                else
+                {
+                    lblAddStaffError.Text = responseData.message ?? "Failed to add staff user.";
+                    lblAddStaffError.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblAddStaffError.Text = "An error occurred: " + ex.Message;
+                lblAddStaffError.Visible = true;
             }
         }
     }
