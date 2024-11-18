@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StaffLogin.aspx.cs" Inherits="EntertainmentApp.StaffLogin" %>
+<%@ Register TagPrefix="uc" TagName="Captcha" Src="~/CaptchaControl.ascx" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,13 +38,8 @@
                         </label>
                         <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter your password" TextMode="Password" CssClass="form-input" />
                     </div>
-                    <div class="form-group">
-                        <label for="txtCaptchaInput">
-                            <i class="bi bi-shield-lock-fill"></i> CAPTCHA
-                        </label>
-                        <asp:Image ID="imgCaptcha" runat="server" CssClass="captcha-image" />
-                        <asp:TextBox ID="txtCaptchaInput" runat="server" placeholder="Enter CAPTCHA" CssClass="form-input" />
-                    </div>
+                    <!-- CAPTCHA User Control -->
+                    <uc:Captcha ID="CaptchaControl" runat="server" />
                     <asp:Button ID="btnLogin" runat="server" Text="Sign In" OnClick="btnLogin_Click" CssClass="btn-submit" />
                     <br />
                     <asp:Button ID="btnSignup" runat="server" Text="Sign Up" PostBackUrl="~/memberSignup.aspx" CssClass="btn-signup" />

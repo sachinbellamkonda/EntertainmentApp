@@ -15,13 +15,22 @@ namespace EntertainmentApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                if (ViewState["UserType"] != null)
+                {
+                    LoadUsers(ViewState["UserType"].ToString());
+                }
+            }
         }
 
         protected void btnListMembers_Click(object sender, EventArgs e)
         {
+            ViewState["UserType"] = "Member";
             LoadUsers("Member");
         }
         protected void btnListStaff_Click(object sender, EventArgs e){
+            ViewState["UserType"] = "Staff";
             LoadUsers("Staff");
         }
         protected void btnAddStaff_Click(object sender, EventArgs e)
@@ -97,10 +106,13 @@ namespace EntertainmentApp
         {
             try
             {
+                System.Diagnostics.Debug.WriteLine("Step1 ");
                 Button btnDelete = (Button)sender;
                 string[] args = btnDelete.CommandArgument.Split(',');
                 string username = args[0];
                 string userType = args[1];
+
+                System.Diagnostics.Debug.WriteLine(args[0], args[1]);
 
                 // Call the DeleteUser service
                 var client = new Service1Client();
