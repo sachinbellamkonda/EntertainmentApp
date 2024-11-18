@@ -92,7 +92,7 @@ namespace EntertainmentApp
 
             if (isCaptchaValid)
             {
-                Response response = AuthenticateUser(username, password);
+                Response response = AuthenticateUser(username, encryptedPassword);
                 if (response != null && response.Status)
                 {
                     lblResult.Text = "Login successful! Welcome " + username;
