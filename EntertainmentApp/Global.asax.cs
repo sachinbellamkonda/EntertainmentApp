@@ -23,8 +23,6 @@ namespace EntertainmentApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Application["VisitCounter"] = 0;
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

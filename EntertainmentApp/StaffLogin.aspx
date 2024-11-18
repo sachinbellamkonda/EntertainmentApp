@@ -42,8 +42,6 @@
                     <uc:Captcha ID="CaptchaControl" runat="server" />
                     <asp:Button ID="btnLogin" runat="server" Text="Sign In" OnClick="btnLogin_Click" CssClass="btn-submit" />
                     <br />
-                    <asp:Button ID="btnSignup" runat="server" Text="Sign Up" PostBackUrl="~/memberSignup.aspx" CssClass="btn-signup" />
-                    <br />
                     <asp:Label ID="lblResult" runat="server" Text="" CssClass="success"></asp:Label>
                 </div>
             </div>

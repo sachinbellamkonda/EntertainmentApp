@@ -27,7 +27,7 @@
                         <a href="memberSignup.aspx" class="nav-link"> SignUp </a>
                         <a href="SearchMovies.aspx" class="nav-link"> Member</a>
                         <a href="StaffLogin.aspx" class="nav-link"> Staff </a>
-                        <a href="index.html" class="nav-link"> About </a>
+                        <!--<a href="index.html" class="nav-link"> About </a>-->
                     </div>
                 </div>
                 <!-- Navbar Links Ends -->
