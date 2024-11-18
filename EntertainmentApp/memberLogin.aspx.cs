@@ -31,7 +31,7 @@ namespace EntertainmentApp
                         // Deserialize the JSON stored in the cookie
                         var sessionData = JsonConvert.DeserializeObject<UserSession>(userCookie.Value);
 
-                        if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId))
+                        if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId) && sessionData.UserType == "Member")
                         {
                             // Session exists, redirect to SearchMovies page
                             Response.Redirect("searchmovies.aspx");
