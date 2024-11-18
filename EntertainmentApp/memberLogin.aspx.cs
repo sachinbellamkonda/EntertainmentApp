@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using EntertainmentApp.Models;
+using CseLibrary;
 
 namespace EntertainmentApp
 {
@@ -31,7 +32,7 @@ namespace EntertainmentApp
                         // Deserialize the JSON stored in the cookie
                         var sessionData = JsonConvert.DeserializeObject<UserSession>(userCookie.Value);
 
-                        if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId) && sessionData.UserType == "Member")
+                        if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId) && sessionData.UserType.Equals("Member"))
                         {
                             // Session exists, redirect to SearchMovies page
                             Response.Redirect("searchmovies.aspx");
@@ -62,17 +63,18 @@ namespace EntertainmentApp
             {
                 // Create a new cookie
                 HttpCookie userSessionCookie = new HttpCookie("UserSession");
-                userSessionCookie.Value = JsonConvert.SerializeObject(responseObj.CurrentSession);
+
+                // Serialize the entire UserSession object to JSON
+                string jsonSession = JsonConvert.SerializeObject(responseObj.CurrentSession);
+                userSessionCookie.Value = jsonSession;
+
                 // Set the expiration date for the cookie
                 userSessionCookie.Expires = DateTime.Now.AddHours(48);
 
                 // Add the cookie to the response
                 HttpContext.Current.Response.Cookies.Add(userSessionCookie);
-                ViewState["UserName"] = responseObj.CurrentSession.UserName;
-                ViewState["SessionId"] = responseObj.CurrentSession.SessionId;
-                ViewState["UserType"] = responseObj.CurrentSession.UserType;
 
-                // Pass the session data to the next page using QueryString or Session
+                
                 Session["currentSession"] = responseObj.CurrentSession;
             }
             return responseObj; 
@@ -82,6 +84,7 @@ namespace EntertainmentApp
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
+            string encryptedPassword = PasswordEncryptor.EncryptPassword(password);
             string userCaptchaInput = CaptchaControl.UserInput; // Accessing the UserInput property
 
             // Validate CAPTCHA

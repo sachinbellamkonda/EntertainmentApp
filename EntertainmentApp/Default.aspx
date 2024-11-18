@@ -23,8 +23,9 @@
                 <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbarDropdown">
                     <div class="navbar-nav text-end ms-auto">
-                        <a href="memberLogin.aspx" class="nav-link"> Login/Signup </a>
-                        <a href="SearchMovies.aspx" class="nav-link"> Member </a>
+                        <a href="memberLogin.aspx" class="nav-link"> Login </a>
+                        <a href="memberSignup.aspx" class="nav-link"> SignUp </a>
+                        <a href="SearchMovies.aspx" class="nav-link"> Member</a>
                         <a href="StaffLogin.aspx" class="nav-link"> Staff </a>
                         <a href="index.html" class="nav-link"> About </a>
                     </div>

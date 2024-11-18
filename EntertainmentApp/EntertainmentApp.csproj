@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CseLibrary">
+      <HintPath>..\..\CseLibrary\CseLibrary\bin\Debug\CseLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -103,6 +106,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="CaptchaControl.ascx" />
+    <Content Include="Try.aspx" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
     <Content Include="Connected Services\ServiceReference1\EntertainmentApp.ServiceReference1.CompositeType.datasource">
@@ -310,6 +314,13 @@
     </Compile>
     <Compile Include="CaptchaControl.ascx.designer.cs">
       <DependentUpon>CaptchaControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Try.aspx.cs">
+      <DependentUpon>Try.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Try.aspx.designer.cs">
+      <DependentUpon>Try.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

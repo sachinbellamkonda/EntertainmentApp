@@ -3,8 +3,8 @@
 ################################################################################
 
 /EntertainmentApp/.vs/
-EntertainmentApp/bin/
-EntertainmentApp/obj/Debug/
+# EntertainmentApp/bin/
+#EntertainmentApp/obj/Debug/
 EntertainmentApp/obj/Debug/build.force
 EntertainmentApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 EntertainmentApp/obj/Debug/EntertainmentApp.csproj.AssemblyReference.cache

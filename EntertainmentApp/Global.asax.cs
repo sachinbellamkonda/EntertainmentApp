@@ -11,11 +11,25 @@ namespace EntertainmentApp
 {
     public class Global : HttpApplication
     {
-        void Application_Start(object sender, EventArgs e)
+        //void Application_Start(object sender, EventArgs e)
+        //{
+        //    // Code that runs on application startup
+        //    RouteConfig.RegisterRoutes(RouteTable.Routes);
+        //    BundleConfig.RegisterBundles(BundleTable.Bundles);
+        //}
+        protected void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            // Initialize the visit counter
+            Application["VisitCounter"] = 0;
         }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            // Increment the counter on every new request
+            Application.Lock(); // Ensure thread safety
+            Application["VisitCounter"] = (int)Application["VisitCounter"] + 1;
+            Application.UnLock();
+        }
+
     }
 }
