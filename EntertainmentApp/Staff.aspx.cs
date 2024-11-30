@@ -24,7 +24,63 @@ namespace EntertainmentApp
                 }
             }
             else
-            { lblVisitCounter.Text = Application["VisitCounter"]?.ToString() ?? "0"; }
+            {
+                try
+                {
+                    // Check if session cookie exists
+                    HttpCookie userCookie = Request.Cookies["UserSession"];
+                    if (userCookie != null)
+                    {
+                        // Deserialize the JSON stored in the cookie
+                        var sessionData = JsonConvert.DeserializeObject<UserSession>(userCookie.Value);
+
+                        if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId) && sessionData.UserType.Equals("Staff"))
+                        {
+                            using (var client = new Service1Client())
+                            {
+                                // Validate the session using the service
+                                var currentSession = new Session
+                                {
+                                    SessionId = sessionData.SessionId,
+                                    UserName = sessionData.UserName,
+                                    UserType = sessionData.UserType
+                                };
+
+                                string validationResponse = client.ValidateSession(currentSession);
+                                var responseDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(validationResponse);
+
+                                if (responseDictionary.ContainsKey("status") && !(bool)responseDictionary["status"])
+                                {
+                                    // Session invalid, redirect to login page
+                                    Response.Redirect("~/sessionInvalid.aspx?source=staff");
+                                }
+                                else
+                                {
+                                    lblVisitCounter.Text = Application["VisitCounter"]?.ToString() ?? "0";
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // Invalid session cookie data, redirect to login
+                            Response.Redirect("~/sessionInvalid.aspx?source=staff");
+                        }
+                    }
+                    else
+                    {
+                        // No session cookie, redirect to login page
+                        Response.Redirect("~/sessionInvalid.aspx?source=staff");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions and redirect to login page
+                    Console.WriteLine($"Error validating session: {ex.Message}");
+                    Response.Redirect("~/sessionInvalid.aspx?source=staff");
+                }
+
+                
+            }
         }
 
         protected void btnListMembers_Click(object sender, EventArgs e)
