@@ -21,6 +21,34 @@ namespace EntertainmentApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (!IsPostBack)
+            //{
+            //    // Check if user session exists
+            //    HttpCookie userCookie = Request.Cookies["UserSession"];
+            //    if (userCookie != null)
+            //    {
+            //        try
+            //        {
+            //            // Deserialize the JSON stored in the cookie
+            //            var sessionData = JsonConvert.DeserializeObject<UserSession>(userCookie.Value);
+
+            //            if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId) && sessionData.UserType == "Staff")
+            //            {
+            //                // Session exists, redirect to SearchMovies page
+            //                Response.Redirect("staff.aspx");
+            //            }
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            // Handle any exceptions (e.g., cookie tampering or deserialization issues)
+            //            Console.WriteLine("Error reading user session: " + ex.Message);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        CaptchaControl.DisplayCaptcha();
+            //    }
+            //}
             if (!IsPostBack)
             {
                 // Check if user session exists
@@ -32,20 +60,50 @@ namespace EntertainmentApp
                         // Deserialize the JSON stored in the cookie
                         var sessionData = JsonConvert.DeserializeObject<UserSession>(userCookie.Value);
 
-                        if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId) && sessionData.UserType == "Staff")
+                        if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId) && sessionData.UserType.Equals("Staff"))
                         {
-                            // Session exists, redirect to SearchMovies page
-                            Response.Redirect("staff.aspx");
+                            // Create a session object to send to the service
+                            var currentSession = new Session
+                            {
+                                SessionId = sessionData.SessionId,
+                                UserName = sessionData.UserName,
+                                UserType = sessionData.UserType
+                            };
+
+                            // Call the ValidateSession service
+                            var client = new Service1Client();
+                            string validationResponse = client.ValidateSession(currentSession);
+
+                            // Parse the JSON response
+                            var responseDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(validationResponse);
+
+                            if (responseDictionary.ContainsKey("status") && (bool)responseDictionary["status"])
+                            {
+                                // Session is valid, redirect to SearchMovies page
+                                Response.Redirect("staff.aspx");
+                            }
+                            else
+                            {
+                                // Session invalid or expired, show CAPTCHA
+                                CaptchaControl.DisplayCaptcha();
+                            }
+                        }
+                        else
+                        {
+                            // Invalid session data, show CAPTCHA
+                            CaptchaControl.DisplayCaptcha();
                         }
                     }
                     catch (Exception ex)
                     {
                         // Handle any exceptions (e.g., cookie tampering or deserialization issues)
                         Console.WriteLine("Error reading user session: " + ex.Message);
+                        CaptchaControl.DisplayCaptcha(); // Fallback to CAPTCHA
                     }
                 }
                 else
                 {
+                    // Generate CAPTCHA if no existing session
                     CaptchaControl.DisplayCaptcha();
                 }
             }
@@ -65,7 +123,7 @@ namespace EntertainmentApp
                 userSessionCookie.Value = JsonConvert.SerializeObject(responseObj.CurrentSession);
 
                 // Set the expiration date for the cookie
-                userSessionCookie.Expires = DateTime.Now.AddHours(48);
+                userSessionCookie.Expires = DateTime.Now.AddHours(1);
 
                 // Add the cookie to the response
                 HttpContext.Current.Response.Cookies.Add(userSessionCookie);

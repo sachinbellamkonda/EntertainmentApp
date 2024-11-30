@@ -23,7 +23,7 @@
 
                 <!-- Login Box -->
                 <div class="login-box">
-                    <h2 class="login-heading">Sign In</h2>
+                    <h2 class="login-heading">Staff Sign In</h2>
 
                     <!-- Login Form -->
                     <div class="form-group">

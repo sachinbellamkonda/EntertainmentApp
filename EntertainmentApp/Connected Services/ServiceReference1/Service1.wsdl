@@ -47,13 +47,27 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="ValidateSession">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="currentSession" nillable="true" type="q3:Session" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateSessionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateSessionResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="SignUp">
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="userType" nillable="true" type="xs:string" />
-            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="currentSession" nillable="true" type="q3:Session" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="currentSession" nillable="true" type="q4:Session" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -69,7 +83,7 @@
           <xs:sequence>
             <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="userType" nillable="true" type="xs:string" />
-            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="currentSession" nillable="true" type="q4:Session" />
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="currentSession" nillable="true" type="q5:Session" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -104,7 +118,7 @@
       <xs:element name="SearchMoviesResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="SearchMoviesResult" nillable="true" type="q5:ArrayOfMovie" />
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="SearchMoviesResult" nillable="true" type="q6:ArrayOfMovie" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -118,7 +132,7 @@
       <xs:element name="GetStreamingPlatformsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="GetStreamingPlatformsResult" nillable="true" type="q6:ArrayOfPlatform" />
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="GetStreamingPlatformsResult" nillable="true" type="q7:ArrayOfPlatform" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -161,7 +175,7 @@
       <xs:element name="GetMovieDetailsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="GetMovieDetailsResult" nillable="true" type="q7:DetailedMovie" />
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfService1" minOccurs="0" name="GetMovieDetailsResult" nillable="true" type="q8:DetailedMovie" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -289,6 +303,12 @@
   <wsdl:message name="IService1_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ValidateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSession" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ValidateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateSessionResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_SignUp_InputMessage">
     <wsdl:part name="parameters" element="tns:SignUp" />
   </wsdl:message>
@@ -350,6 +370,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Login" message="tns:IService1_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginResponse" message="tns:IService1_Login_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ValidateSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ValidateSession" message="tns:IService1_ValidateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ValidateSessionResponse" message="tns:IService1_ValidateSession_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SignUp">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SignUp" message="tns:IService1_SignUp_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SignUpResponse" message="tns:IService1_SignUp_OutputMessage" />
@@ -405,6 +429,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/IService1/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSession">
+      <soap:operation soapAction="http://tempuri.org/IService1/ValidateSession" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

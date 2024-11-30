@@ -36,7 +36,7 @@ namespace EntertainmentApp
                 userSessionCookie.Value = jsonSession;
 
                 // Set the expiration date for the cookie
-                userSessionCookie.Expires = DateTime.Now.AddHours(48);
+                userSessionCookie.Expires = DateTime.Now.AddMinutes(2);
 
                 // Add the cookie to the response
                 HttpContext.Current.Response.Cookies.Add(userSessionCookie);

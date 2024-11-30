@@ -47,6 +47,7 @@
             <div class="container mx-auto p-4">
                 <h3 class="text-center">Application and Components Summary Table</h3>
                 <h4 class="text-center"> Adithya: 33.33%  Sachin: 33.33%  Ishan: 33.33%</h4>
+                <h4 class="text-center"> Link to the Default page deployed <a href="Default.aspx">Default page</a></h4>
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>
@@ -184,6 +185,22 @@
                             <td>landing page for users and try it page for local components</td>
                             <td>gui for users landing page, and tryit for other local components </td>
                             <td>ASP.NET, C# code.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Ishan, Sachin and Adithya</td>
+                            <td>sessionInvalid.aspx</td>
+                            <td>This page gets triggered whenver session is expired and lead to respective Login page of member/staff</td>
+                            <td>gui for showing user that session is expired and re logging in is required</td>
+                            <td>ASP.NET, C#, Java script code in sessionInvalid.aspx file</td>
+                        </tr>
+
+                        <tr>
+                            <td>Adithya,Ishan and Sachin</td>
+                            <td>Service for session validation</td>
+                            <td>This service takes in userSession and returns the validation of session</td>
+                            <td>USed everytime the page gets reloaded. Checks whether the current session of the user is valid.</td>
+                            <td> WCF service, C#</td>
                         </tr>
       
                     </tbody>

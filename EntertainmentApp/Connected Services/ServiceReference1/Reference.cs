@@ -564,6 +564,12 @@ namespace EntertainmentApp.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
         System.Threading.Tasks.Task<string> LoginAsync(string userName, string password, string userType);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ValidateSession", ReplyAction="http://tempuri.org/IService1/ValidateSessionResponse")]
+        string ValidateSession(EntertainmentApp.ServiceReference1.Session currentSession);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ValidateSession", ReplyAction="http://tempuri.org/IService1/ValidateSessionResponse")]
+        System.Threading.Tasks.Task<string> ValidateSessionAsync(EntertainmentApp.ServiceReference1.Session currentSession);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SignUp", ReplyAction="http://tempuri.org/IService1/SignUpResponse")]
         string SignUp(string userName, string password, string userType, EntertainmentApp.ServiceReference1.Session currentSession);
         
@@ -662,6 +668,14 @@ namespace EntertainmentApp.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> LoginAsync(string userName, string password, string userType) {
             return base.Channel.LoginAsync(userName, password, userType);
+        }
+        
+        public string ValidateSession(EntertainmentApp.ServiceReference1.Session currentSession) {
+            return base.Channel.ValidateSession(currentSession);
+        }
+        
+        public System.Threading.Tasks.Task<string> ValidateSessionAsync(EntertainmentApp.ServiceReference1.Session currentSession) {
+            return base.Channel.ValidateSessionAsync(currentSession);
         }
         
         public string SignUp(string userName, string password, string userType, EntertainmentApp.ServiceReference1.Session currentSession) {
