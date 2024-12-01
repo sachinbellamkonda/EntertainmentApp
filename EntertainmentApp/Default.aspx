@@ -47,7 +47,7 @@
             <div class="container mx-auto p-4">
                 <h3 class="text-center">Application and Components Summary Table</h3>
                 <h4 class="text-center"> Adithya: 33.33%  Sachin: 33.33%  Ishan: 33.33%</h4>
-                <h4 class="text-center"> Link to the Default page deployed <a href="Default.aspx">Default page</a></h4>
+                <h4 class="text-center"> Link to the Default page deployed <a href="http://webstrar51.fulton.asu.edu/Page3/Default">Default page</a></h4>
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>

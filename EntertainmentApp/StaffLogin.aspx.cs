@@ -121,6 +121,8 @@ namespace EntertainmentApp
                 // Create a new cookie
                 HttpCookie userSessionCookie = new HttpCookie("UserSession");
                 userSessionCookie.Value = JsonConvert.SerializeObject(responseObj.CurrentSession);
+                userSessionCookie.Domain = "webstrar51.fulton.asu.edu";
+                userSessionCookie.Path = "/";
 
                 // Set the expiration date for the cookie
                 userSessionCookie.Expires = DateTime.Now.AddHours(1);

@@ -128,6 +128,63 @@ namespace EntertainmentApp
                     Response.Redirect("~/sessionInvalid.aspx?source=member");
                 }
             }
+            else
+            {
+                ValidateSession();
+            }
+        }
+
+        private void ValidateSession()
+        {
+            try
+            {
+                // Check if session cookie exists
+                HttpCookie userCookie = Request.Cookies["UserSession"];
+                if (userCookie != null)
+                {
+                    // Deserialize the JSON stored in the cookie
+                    var sessionData = JsonConvert.DeserializeObject<UserSession>(userCookie.Value);
+
+                    if (sessionData != null && !string.IsNullOrEmpty(sessionData.SessionId) && sessionData.UserType.Equals("Member"))
+                    {
+                        using (var client = new Service1Client())
+                        {
+                            // Validate the session using the service
+                            var currentSession = new Session
+                            {
+                                SessionId = sessionData.SessionId,
+                                UserName = sessionData.UserName,
+                                UserType = sessionData.UserType
+                            };
+
+                            string validationResponse = client.ValidateSession(currentSession);
+                            var responseDictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(validationResponse);
+
+                            if (responseDictionary.ContainsKey("status") && !(bool)responseDictionary["status"])
+                            {
+                                // Session invalid, redirect to login page
+                                Response.Redirect("~/sessionInvalid.aspx?source=member");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // Invalid session cookie data, redirect to login
+                        Response.Redirect("~/sessionInvalid.aspx?source=member");
+                    }
+                }
+                else
+                {
+                    // No session cookie, redirect to login page
+                    Response.Redirect("~/sessionInvalid.aspx?source=member");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions and redirect to login page
+                Console.WriteLine($"Error validating session: {ex.Message}");
+                Response.Redirect("~/sessionInvalid.aspx?source=member");
+            }
         }
 
         // Search Button Click Event

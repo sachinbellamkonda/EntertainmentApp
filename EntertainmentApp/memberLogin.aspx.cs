@@ -109,8 +109,8 @@ namespace EntertainmentApp
             //         CaptchaControl.DisplayCaptcha();
             //     }
             // }
+           
         }
-
 
         private Response AuthenticateUser(string username, string password)
         {
@@ -125,6 +125,8 @@ namespace EntertainmentApp
                 // Serialize the entire UserSession object to JSON
                 string jsonSession = JsonConvert.SerializeObject(responseObj.CurrentSession);
                 userSessionCookie.Value = jsonSession;
+                userSessionCookie.Domain = "webstrar51.fulton.asu.edu";
+                userSessionCookie.Path = "/";
 
                 // Set the expiration date for the cookie
                 userSessionCookie.Expires = DateTime.Now.AddHours(1);
